@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Stock</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #main {
+            border: 0px solid black;
+            padding: 10px;
+            width: 1390px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            background-color: #3498db;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+
+</head>
+<body>
+<center>
+    <h2 id="main">Current Stock</h2>
+</center>
+<p id="displayJackets"></p>
+<p id="displayShirts"></p>
+<p id="displayPants"></p>
+<p id="displaySocks"></p>
+
+
+<h4>Dispatch</h4>
+<p id="dispatchedJackets"></p>
+<p id="dispatchedShirts"></p>
+<p id="dispatchedPants"></p>
+<p id="dispatchedSocks"></p>
+
+<script>
+        // Retrieve values from local storage
+        var jacketsQuantity = localStorage.getItem("Jquantity") || 0;
+        var shirtsQuantity = localStorage.getItem("Squantity") || 0;
+        var pantsQuantity = localStorage.getItem("Pquantity") || 0;
+        var sockQuantity = localStorage.getItem("SPquantity") || 0;
+
+        if(jacketsQuantity < 0){jacketsQuantity = 0;}
+        if(shirtsQuantity < 0){shirtsQuantity = 0;}
+        if(pantsQuantity < 0){pantsQuantity = 0;}
+        if(sockQuantity < 0){sockQuantity = 0;}
+
+        var djacketsQuantity = localStorage.getItem("dJquantity") || 0;
+        var dshirtsQuantity = localStorage.getItem("dSquantity") || 0;
+        var dpantsQuantity = localStorage.getItem("dPquantity") || 0;
+        var dsockQuantity = localStorage.getItem("dSPquantity") || 0;
+
+        if(djacketsQuantity < 0){djacketsQuantity = 0;}
+        if(dshirtsQuantity < 0){dshirtsQuantity = 0;}
+        if(dpantsQuantity < 0){dpantsQuantity = 0;}
+        if(dsockQuantity < 0){dsockQuantity = 0;}
+
+
+        var jleft = jacketsQuantity - djacketsQuantity;
+        var sleft = shirtsQuantity - dshirtsQuantity;
+        var pleft = pantsQuantity - dpantsQuantity;
+        var spleft = sockQuantity - dsockQuantity;
+
+        if(jleft < 0){jleft = 0;}
+
+        if(sleft < 0){
+        sleft = 0;
+        }
+
+        if(pleft < 0){
+        pleft = 0;
+        }
+
+        if(spleft < 0){
+        spleft = 0;
+        }
+
+if (djacketsQuantity > jacketsQuantity || dshirtsQuantity > shirtsQuantity || dpantsQuantity > pantsQuantity || dsockQuantity > sockQuantity) {
+            alert("Not enough stock for dispatch!");
+            document.body.innerHTML = "Dispatch failed due to insufficient stock/stock is empty";
+            }else{
+        // Display current stock quantities
+        document.getElementById("displayJackets").innerText = "Amount of Jackets: " + jleft;
+        document.getElementById("displayShirts").innerText = "Amount of Shirts: " + sleft;
+        document.getElementById("displayPants").innerText = "Amount of Pants: " + pleft;
+        document.getElementById("displaySocks").innerText = "Amount of Sock Pairs: " + spleft;
+
+        // Display dispatched stock quantities
+        document.getElementById("dispatchedJackets").innerText = "Dispatched Jackets: " + djacketsQuantity;
+        document.getElementById("dispatchedShirts").innerText = "Dispatched Shirts: " + dshirtsQuantity;
+        document.getElementById("dispatchedPants").innerText = "Dispatched Pants: " + dpantsQuantity;
+        document.getElementById("dispatchedSocks").innerText = "Dispatched Sock Pairs: " + dsockQuantity;
+        }
+    </script>
+</body>
+</html>

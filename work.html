@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #main {
+            border: 0px solid black;
+            padding: 10px;
+            width: 1390px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            background-color: #3498db;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #enterstock, #viewstock, #dispatchstock {
+            margin: 10px; /* Add margin for spacing */
+        }
+
+        img {
+            height: 200px;
+            margin: 10px; /* Add margin for spacing */
+        }
+
+        button {
+            margin: 10px; /* Add margin for spacing */
+        }
+
+        table {
+            display: flex; /* Use flex container for horizontal layout */
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: center; /* Center items horizontally */
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h2 id="main">Home</h2>
+
+    <table>
+        <tr>
+            <td>
+                <img src="in.jpeg" alt="Enter Stock" height="200">
+                <form action="enterstock.html" method="post">
+                    <button type="submit" id="enterstock">Enter Stock</button>
+                </form>
+            </td>
+            <td>
+                <img src="clothing2.jpeg" alt="View Stock" height="200">
+                <form action="viewstock.html" method="post">
+                    <button type="submit" id="viewstock">View Stock</button>
+                </form>
+            </td>
+            <td>
+                <img src="out2.png" alt="Dispatch Stock" height="200">
+                <form action="dispatchstock.html" method="post">
+                    <button type="submit" id="dispatchstock">Dispatch Stock</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+</center>
+</body>
+</html>

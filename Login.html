@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+        body {
+            margin: 0; /* Remove default body margin */
+            padding: 0; /* Remove default body padding */
+        }
+
+        .colored-section {
+            background-color: #3498db; /* Set the background color to your desired color */
+            height: 100vh; /* Set the height of the colored section (100% of viewport height) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+</head>
+<body>
+<div class="colored-section">
+<center>
+  <img src="clothing2.jpeg" height="200">
+
+  <h3>Login Here</h3>
+
+  <form onsubmit="return validateLogin()" action="work.html" method="post">
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td>
+          <input type="text" name="username" id="usernameInput" required>
+        </td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td>
+          <input type="password" name="password" id="passwordInput" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="submit">Login</button>
+        </td>
+        <td>
+          Not yet a Member? <a href="register.html">Register</a>
+        </td>
+      </tr>
+    </table>
+  </form>
+</center>
+
+<script>
+function validateLogin() {
+    var enteredUsername = document.getElementById("usernameInput").value;
+    var enteredPassword = document.getElementById("passwordInput").value;
+
+    var predefinedUsername = "kidus"; // Change this to your desired username
+    var predefinedPassword = "kidus"; // Change this to your desired password
+
+    if (enteredUsername === predefinedUsername && enteredPassword === predefinedPassword) {
+        return true; // Allow form submission
+    } else {
+        alert("Incorrect username or password. Please try again.");
+        return false; // Prevent form submission
+    }
+}
+</script>
+
+</body>
+</html>

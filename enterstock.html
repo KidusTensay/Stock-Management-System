@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Entry Form</title>
+    <script>
+    function handleFormSubmission() {
+        var jacketsQuantity = document.getElementById("J_quantity").value;
+        var shirtsQuantity = document.getElementById("S_quantity").value;
+        var pantsQuantity = document.getElementById("pantquantity").value;
+        var sockQuantity = document.getElementById("sockquantity").value;
+
+        // Store values in local storage
+        localStorage.setItem("Jquantity", jacketsQuantity);
+        localStorage.setItem("Squantity", shirtsQuantity);
+        localStorage.setItem("Pquantity", pantsQuantity);
+        localStorage.setItem("SPquantity", sockQuantity);
+
+        // Redirect to the next page
+        //window.location.href = "nextpage.html";
+
+        // Prevent the form from actually submitting to the server
+
+    }
+
+
+
+</script>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #main {
+            border: 0px solid black;
+            padding: 10px;
+            width: 1390px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            background-color: #3498db;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+</head>
+<body>
+<h2 id="main">Stock Entry Form</h2>
+<form action="stock-entry" method="post">
+    <table>
+    <tr>
+        <td>
+            <img src="jacket.webp" alt="Jackets Stock" height="200">
+    <label>Item Name: Jackets</label>
+
+    <label for="J_quantity">Quantity:</label>
+    <input type="number" id="J_quantity" name="J_quantity" required>
+        </td>
+    </tr>
+
+<tr>
+    <td>
+        <img src="shirt3.jpeg" alt="Shirt Stock" height="200">
+    <label>Item Name: Shirt</label>
+
+    <label for="S_quantity">Quantity:</label>
+    <input type="number" id="S_quantity" name="S_quantity" required>
+    </td>
+</tr>
+        <tr>
+            <td>
+                <img src="pants.jpeg" alt="Pants Stock" height="200">
+    <label>Item Name: Pants</label>
+
+    <label for="pantquantity">Quantity:</label>
+    <input type="number" id="pantquantity" name="quantity" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="socks.jpeg" alt="Socks Stocks" height="200">
+    <label>Item Name: Sock Pairs</label>
+
+    <label for="sockquantity">Quantity:</label>
+    <input type="number" id="sockquantity" name="quantity" required>
+            </td>
+        </tr>
+
+    </table>
+</form>
+<table>
+<tr>
+    <td>
+    <button type="button" onclick="handleFormSubmission()">Submit</button>
+    </td>
+<td>
+    <form action="viewstock.html" method="post">
+        <button type="submit">View Stock</button>
+</form>
+</td>
+</tr>
+</table>
+</body>
+</html>
